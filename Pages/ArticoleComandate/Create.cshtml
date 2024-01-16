@@ -2,10 +2,10 @@
 @model MagazinOnline.Pages.ArticoleComandate.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Creeaza";
 }
 
-<h1>Create</h1>
+
 
 <h4>ArticolComandat</h4>
 <hr />
@@ -32,14 +32,14 @@
                 <select asp-for="ArticolComandat.ComandaId" class ="form-control" asp-items="ViewBag.ComandaId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Creeaza" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Inapoi</a>
 </div>
 
 @section Scripts {
