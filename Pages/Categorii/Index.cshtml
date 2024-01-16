@@ -1,0 +1,42 @@
+﻿@page
+@model MagazinOnline.Pages.Categorii.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorie[0].Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorie[0].Descriere)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Categorie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CategorieId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.CategorieId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CategorieId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
