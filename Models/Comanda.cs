@@ -1,4 +1,6 @@
-﻿namespace MagazinOnline.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MagazinOnline.Models
 {
     public class Comanda
     {
@@ -9,11 +11,12 @@
 
         public string StatusComanda { get; set; }
 
+        [Display(Name = "ClientNume")]
         public int ClientId { get; set; }
 
         public Client? Client { get; set; } 
 
-        // Navigation property
+        // proprietate de navigare
         public List<ArticolComandat>? ArticoleComandate { get; set; }
     }
 }

@@ -21,9 +21,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Comanda.StatusComanda" class="control-label"></label>
-                <input asp-for="Comanda.StatusComanda" class="form-control" />
+                <select asp-for="Comanda.StatusComanda" class="form-control">
+                    <option value="In procesare">In procesare</option>
+                    <option value="In curs de livrare">In curs de livrare</option>
+                    <option value="Anulata">Anulata</option>
+                    <option value="Livrata">Livrata</option>
+                </select>
                 <span asp-validation-for="Comanda.StatusComanda" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="Comanda.ClientId" class="control-label"></label>
                 <select asp-for="Comanda.ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>

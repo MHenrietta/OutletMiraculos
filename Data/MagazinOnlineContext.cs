@@ -20,8 +20,16 @@ namespace MagazinOnline.Data
         public DbSet<MagazinOnline.Models.Categorie> Categorie { get; set; } = default!;
         public DbSet<MagazinOnline.Models.ArticolComandat> ArticolComandat { get; set; } = default!;
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
 
-        
+            modelBuilder.Entity<Client>()
+                .Property(c => c.Adresa)
+                .IsRequired(false);
+
+        }
+
     }
 
 }

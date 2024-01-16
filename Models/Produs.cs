@@ -15,6 +15,7 @@ namespace MagazinOnline.Models
         public string Descriere { get; set; }
 
         // Cheie primara
+        [Display(Name = "Categorie")]
         public int CategorieId { get; set; }
 
         // Proprietate de navigare

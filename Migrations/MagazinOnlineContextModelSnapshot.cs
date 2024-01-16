@@ -81,11 +81,9 @@ namespace MagazinOnline.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientId"));
 
                     b.Property<string>("Adresa")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientNume")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -93,11 +91,9 @@ namespace MagazinOnline.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NumarTelefon")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenume")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ClientId");
