@@ -5,6 +5,9 @@ namespace MagazinOnline.Models
     public class Client
     {
         public int ClientId { get; set; }
+
+        
+       
         public string? ClientNume { get; set; }
 
         [Display(Name = "ClientPrenume")]

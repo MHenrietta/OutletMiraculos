@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MagazinOnline.Data;
 using MagazinOnline.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MagazinOnline.Pages.Produse
 {
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly MagazinOnline.Data.MagazinOnlineContext _context;

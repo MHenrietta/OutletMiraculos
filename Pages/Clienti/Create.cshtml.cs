@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MagazinOnline.Data;
 using MagazinOnline.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MagazinOnline.Pages.Clienti
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly MagazinOnline.Data.MagazinOnlineContext _context;

@@ -14,8 +14,22 @@ builder.Services.AddDbContext<MagazinOnlineContext>(options =>
 builder.Services.AddDbContext<LibraryIdentityContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("MagazinOnlineContext") ?? throw new InvalidOperationException("Connection string 'MagazinOnlineContext' not found.")));
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<LibraryIdentityContext>();
 
+
+builder.Services.AddRazorPages(options => {
+    options.Conventions.AuthorizeFolder("/Clienti");
+    options.Conventions.AuthorizeFolder("/Clienti", "AdminPolicy");
+});
+
+builder.Services.AddRazorPages(options => { options.Conventions.AuthorizeFolder("/Produse");
+    options.Conventions.AllowAnonymousToPage("/Produse/Index");
+    options.Conventions.AllowAnonymousToPage("/Produse/Details");
+
+});
+
+builder.Services.AddAuthorization(options => { options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin")); });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,3 +50,5 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+

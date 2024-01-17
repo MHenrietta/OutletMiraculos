@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MagazinOnline.Data;
 using MagazinOnline.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MagazinOnline.Pages.Clienti
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly MagazinOnline.Data.MagazinOnlineContext _context;
